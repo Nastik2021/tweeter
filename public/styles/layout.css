@@ -27,7 +27,7 @@ body {
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
 
- main {
+ .container {
    display: flex;
    flex-direction: column;
    justify-content: centrer;
@@ -35,5 +35,49 @@ body {
    background-color:  #f4f1ec;
    margin-left: 5%;
    margin-right: 5%; 
+   max-width: 900px;
 
  }
+
+ /* new tweets section */
+
+ .tweets {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: solid 5px;
+  margin-bottom: 1em;
+  justify-content: space-between;
+  padding: 0.5rem  
+}
+ 
+
+ /* article {
+ 
+  background-color: #f4f1ec;
+  
+  padding: 0.5em;
+} */
+
+
+.tweets > header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-top: solid 5px;
+}
+
+p {
+  font-size: 200%;
+}
+
+.fas:hover {
+  color: pink;
+}

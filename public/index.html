@@ -48,9 +48,12 @@
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
+    
+    
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
+    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+    
   </head>
 
   
@@ -58,7 +61,7 @@
 
 
   
-  <body>
+  
     <!-- Top nav bar (fixed) -->
     <nav>
       <span class="logo">tweeter</span>
@@ -69,7 +72,7 @@
     </nav>
 
     
-    <header>
+    <header class="main-header">
       <div>
           <img src="/images/profile-hex.png"> 
       </div>
@@ -84,17 +87,56 @@
     
     <!-- Page-specific (main) content here -->
     <main class="container">
+      <body>
+
       <section class="new-tweet">
-        <h2>Compose Tweet</h2>
-        <form method="POST" action="/tweets/">
-          <label for="tweet-text">What are you humming about?</label>
-          <textarea name="text" id="tweet-text" placeholder=""></textarea>
-          <div id="tweet-below">
+        <!-- <h2>Compose Tweet</h2> -->
+        <form method="POST" action="/tweets">
+          <!-- <label for="tweet-text">What are you humming about?</label> -->
+          <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
+          
+          <!-- <div id="tweet-below"> -->
+          <div>
            <span><button type="submit">Tweet</button></span>
-            <span><output name="counter" class="counter" for="tweet-text">140</output></span>
+           <span><output class="counter" for="tweet-text">140</output></span>
           </div>
         </form>
       </section>
-   </main>
+  
+
+   
+   
+    <article class="tweets">
+          <header>
+            <span class="username"><i class="fas fa-smile"></i> Some Name</span>
+            <span class="userid">@Name1</span>
+          </header>
+          
+          <p>This is a new tweet, hello everyone!</p>
+
+          <footer>
+            <span>10 days ago</span>
+            <span><i class="fas fa-flag"></i> <i class="fas fa-retweet"></i> <i class="fas fa-heart"></i></span>
+          </footer>
+    </article>
+
+    
+    <article class="tweets">
+      <header>
+        <span class="username"><i class="fas fa-smile"></i> another Name</span>
+        <span class="userid">@Name2</span>
+      </header>
+      
+      <p>This is another tweet, good evening!</p>
+
+      <footer>
+        <span>10 days ago</span>
+        <span><i class="fas fa-flag"></i> <i class="fas fa-retweet"></i> <i class="fas fa-heart"></i></span>
+      </footer>
+    </article>
+    
+
   </body>
+
+</main>
 </html>
