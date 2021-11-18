@@ -7,6 +7,8 @@
 
 $(document).ready(function() {
 
+  $('#error').hide();
+
   //Function that renders created tweets using the function createTweetElement
   const renderTweets = function(tweets) {
     for (let tweet of tweets) {
@@ -53,7 +55,10 @@ $(document).ready(function() {
    //This will load tweets from the /tweets
    const loadTweets = () => {
     $.ajax("/tweets", { method: "GET" }).then((data) => {
+      
       renderTweets(data);
+      // $('#error').empty();
+      
     });
   };
 
@@ -65,17 +70,22 @@ $(document).ready(function() {
     
     
     if ($tweetText.length - 5 === 0) {
-      alert("Your tweet cannot be empty");
-      return;
+      $("#error")
+        .html("Your tweet cannot be empty")
+        .slideDown("slow");
+      
+      
     } else if ($tweetText.length > 140) {
-      alert("Your tweet exceeds the maximum length allowed");
-      return;
+      $("#error")
+        .html("Your tweet-tweet is too long!")
+        .slideDown("slow");
     }
     
     $.post('/tweets', $tweetText).then(data => {
       console.log(data);
       $('#tweets-container').empty();
       loadTweets();
+      $("#error").slideUp("slow");  // where should this go????
     });
   });
 

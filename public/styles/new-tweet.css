@@ -39,3 +39,12 @@ button {
 .negative-count {
   color:red;
 }
+
+#error {
+  border: 5px solid red;
+  color: black;
+  /* font-family: 'Bungee'; */
+  font-size: 30px;
+  /* visibility: hidden; */
+  
+}
