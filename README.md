@@ -22,6 +22,6 @@ Tweeter is a simple, single-page Twitter clone.
 
 ## Screenshots
 
-!["Desktop version of tweeter"] (https://github.com/Nastik2021/tweeter/blob/master/docs/desktop-version.png)
-!["Mobile version of tweeter"] (https://github.com/Nastik2021/tweeter/blob/master/docs/mobile-version.png)
-!["tweet-box"] (https://github.com/Nastik2021/tweeter/blob/master/docs/tweet-box.png)
+!["Desktop version of tweeter"](https://github.com/Nastik2021/tweeter/blob/master/docs/desktop-version.png)
+!["Mobile version of tweeter"](https://github.com/Nastik2021/tweeter/blob/master/docs/mobile-version.png)
+!["tweet-box"](https://github.com/Nastik2021/tweeter/blob/master/docs/tweet-box.png)
