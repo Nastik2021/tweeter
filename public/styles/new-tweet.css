@@ -9,7 +9,10 @@
   width: 100%;
   border: none;
   background: none;
-  border-bottom: solid #2f2302;
+  border-bottom: 5px solid #2f2302;
+  font-size: xx-large;
+  outline: 0;
+  line-height: 20px;
 }
 
 button {
@@ -43,8 +46,15 @@ button {
 #error {
   border: 5px solid red;
   color: black;
-  /* font-family: 'Bungee'; */
+  font-family: 'Bungee'; 
   font-size: 30px;
-  /* visibility: hidden; */
-  
+  font-weight: bold;
+
 }
+
+/* #tweets-container:hover {
+  box-shadow: 5px 10px grey;
+  color: black;
+  opacity: 1;
+} */
+

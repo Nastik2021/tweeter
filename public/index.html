@@ -2,7 +2,9 @@
 <html lang="en">
   <head>
     <!-- Meta Information -->
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'/>
     <title>Tweeter - Home Page</title>
+    
 
     <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
@@ -56,38 +58,35 @@
     
   </head>
 
-  
-
-
-
-  
+  <body>
   
     <!-- Top nav bar (fixed) -->
     <nav>
       <span class="logo">tweeter</span>
       <div class="new-tweet-container">
         <span><strong>Write</strong> a new tweet</span>
-        <i class="fa-solid fa-angles-down"></i>
+        <i id="arrow-icon" class="fas fa-angle-double-down fa-fade"></i>
       </div> 
     </nav>
 
-    
+
+  <!-- "Container for the desktop view" -->
+<div class="desktop">
     <header class="main-header">
       <div>
           <img src="/images/profile-hex.png"> 
       </div>
       <br>
-      <di >
-          <h2 class="name"> Anastassia </h2> 
+      <div>
+          <h2 class="name"> Anastassia Tsvetkova</h2> 
       </div>
-   </header>
-
-    
-    
+    </header>
+  </div>
+  
     
     <!-- Page-specific (main) content here -->
     <main class="container">
-      <body>
+      
 
       <section class="new-tweet">
         <!-- <h2>Compose Tweet</h2> -->
@@ -105,39 +104,11 @@
       </section>
   
 
-   
-    <section id="tweets-container">
-    <!-- <article class="tweets">
-          <header>
-            <span class="username"><i class="fas fa-smile"></i> Some Name</span>
-            <span class="userid">@Name1</span>
-          </header>
-          
-          <p>This is a new tweet, hello everyone!</p>
+      <section id="tweets-container"></section>
+  
+     
+    </main>
 
-          <footer>
-            <span>10 days ago</span>
-            <span><i class="fas fa-flag"></i> <i class="fas fa-retweet"></i> <i class="fas fa-heart"></i></span>
-          </footer>
-    </article>
 
-    
-    <article class="tweets">
-      <header>
-        <span class="username"><i class="fas fa-smile"></i> another Name</span>
-        <span class="userid">@Name2</span>
-      </header>
-      
-      <p>This is another tweet, good evening!</p>
-
-      <footer>
-        <span>10 days ago</span>
-        <span><i class="fas fa-flag"></i> <i class="fas fa-retweet"></i> <i class="fas fa-heart"></i></span>
-      </footer>
-    </article> -->
-  </section>
-
-  </body>
-
-</main>
+</body>
 </html>

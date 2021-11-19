@@ -5,12 +5,12 @@
  */
 
 
-$(document).ready(function() {
+$(document).ready(function () {
 
   $('#error').hide();
 
   //Function that renders created tweets using the function createTweetElement
-  const renderTweets = function(tweets) {
+  const renderTweets = function (tweets) {
     for (let tweet of tweets) {
       const $tweet = createTweetElement(tweet);
       $('#tweet-text').val('');
@@ -21,22 +21,21 @@ $(document).ready(function() {
 
   //This function takes in an object element from JSON and created the tweet
   const createTweetElement = (obj) => {
-  const createdAtTime = timeago.format(obj.created_at); ////WHY does it say not defined???
-  
-  //function for cross-site scripting
-  const escape = function (str) {
-    let div = document.createElement("div");
-    div.appendChild(document.createTextNode(str));
-    return div.innerHTML;
-  };
+    const createdAtTime = timeago.format(obj.created_at); ////WHY does it say not defined???
 
-  const $tweet = $(`
+    //function for cross-site scripting
+    const escape = function (str) {
+      let div = document.createElement("div");
+      div.appendChild(document.createTextNode(str));
+      return div.innerHTML;
+    };
+
+    const $tweet = $(`
     <article class="tweets">
             <header>
               <span class="username"><i class="fas fa-smile"></i>${obj.user.name}</span>
               <span class="userid">${obj.user.handle}</span>
             </header>
-            
             
             <p>${escape(obj.content.text)}</p>
 
@@ -51,47 +50,48 @@ $(document).ready(function() {
   };
 
 
-
-   //This will load tweets from the /tweets
-   const loadTweets = () => {
-    $.ajax("/tweets", { method: "GET" }).then((data) => {
-      
+  //This will load tweets from the /tweets
+  const loadTweets = () => {
+    $.ajax("/tweets", {
+      method: "GET"
+    }).then((data) => {
       renderTweets(data);
       // $('#error').empty();
-      
+
     });
   };
 
-  //renderTweets(data);
 
+  //renderTweets(data);
   $("#submit_tweets").on('submit', function (event) {
     event.preventDefault(); //this prevents the default behavior, which is to reload the page
-    const $tweetText = $(this).serialize();
-    
-    
-    if ($tweetText.length - 5 === 0) {
+    const serializedData = $(this).serialize();
+    console.log(serializedData);
+    const $tweetText = $("#tweet-text").val();
+    console.log($tweetText.length);
+    if ($tweetText.length <= 0) {
       $("#error")
-        .html("Your tweet cannot be empty")
+        .html("🙀 Your tweet cannot be empty 🙀")
         .slideDown("slow");
-      
-      
+
+
     } else if ($tweetText.length > 140) {
       $("#error")
-        .html("Your tweet-tweet is too long!")
+        .html("🙀 Your tweet exceeds the maximum allowed characters! 🙀")
         .slideDown("slow");
-    }
-    
-    $.post('/tweets', $tweetText).then(data => {
-      console.log(data);
-      $('#tweets-container').empty();
-      loadTweets();
-      $("#error").slideUp("slow");  // where should this go????
-    });
+    } else {
+
+      $.post('/tweets', serializedData).then(data => {
+        console.log(data);
+        $('#tweets-container').empty();
+        $("#error").slideUp("slow"); //////// why it slides back up so quickly???
+        loadTweets();
+
+      });
+    };
   });
 
- 
   loadTweets();
-
 });
 
 
@@ -119,10 +119,3 @@ $(document).ready(function() {
 //     "created_at": 1461113959088
 //   }
 // ];
-
-
-
-
-
-  
-
